@@ -1,0 +1,310 @@
+skw3535@police.go.ke
+ths35353535p!
+유저 네임 : sidan111
+
+
+***  Github 사용방법 정리  ***
+
+1. github 가입후 우측상단에 보면 "+" 누르고,  "New repository"  누름 - 창이 뜨면  "README.md"  체크후 확인
+
+2. "microsoft store" 에서 "Powershell" 검색해서 "powershell" 설치
+
+3. Windows에서 Git을 이용하기 위해서는 Git Bash를 설치해야 하는데, Bash는 유닉스나 리눅스 등의 OS에서 사용되는 유닉스를 이용해 다양한 명령을 내릴 수 있는 프로그램
+               " https://gitforwindows.org/ " 들어가서 "Download" 눌러 다운로드후 설치. 
+  - Windows 시작 메뉴를 열고 'Git' 폴더에서 'Git Bash'를 선택하여 콘솔을 열어 터미널 창이 뜨면 성공
+
+< 2.3번 단계는 4번 단계에서 에러가 뜰때 실행하면 됨>
+
+
+4. 컴퓨터 바탕화면에 "폴더(main ex)" 1개를 먼저 만들어 놓고, 새로 만든 "repository" 에서 "code" 를 눌러 "인터넷 주소 복사"후 
+   다시 컴퓨터 바탕화면에 만들어 놓은 폴더를 우클릭해 '터미널에서 열기'를 선택
+
+- 터미널 창이 열리면 " git clone https://github.com/sidan111/main.git  "  입력
+
+<clone 작업을 마쳤다면 해당 저장소와 연결되어 저장소의 파일들이 들어있는 폴더가 하나 생성됩니다. 우리는 이제 이 폴더에서 작업한 뒤 저장하고 병합하는 과정을 거치며 프로젝트를 완성할 수 있습니다>
+
+
+
+
+
+
+<초보 개발자를 위한 GitHub 사용법 정리>
+      
+       https://div4u.tistory.com/44    
+
+
+<ChatGPT와 GitHub을 활용한 HR 분석, 개발>
+
+       https://brunch.co.kr/@publichr/93
+
+
+
+* https://github.com/아이디/저장소 이름
+* https://github.com/아이디/저장소 이름.git
+
+
+* Git의 작업 영업 :
+                                                                                                                git revert
+                                                                                                                   <---  
+                              git reset                                                                        git pull
+                                <----                                                                             <---
+Working Directory          --         Staging Area         --         Repository(master)         --      Repository(origin/master)
+                                 ---->                               ---->                                       --->
+                               git add                          git commit                                git push
+                                                  l      l
+                                                  l      l                                             Local         :           Remote
+                              stash apply     l      l     stash
+                                                   l      l
+                                                   
+                                                   Stash
+                                                
+
+                   
+
+* Git의 파일 상태 : Modified,  Staged,  Commited
+
+
+- Git bash 에서 origin 삭제하는 방법 
+    1. 현재 설정된 원격저장소 목록 확인 : git remove -v
+    2. origin 삭제 : git remote remove origin
+    3. 삭제된 원격 저장소 확인 : git remove -v
+
+
+*** git + 명령어 (필요에 따라 -키 또는 -- 옵션을 추가할 수도 있음 ***
+
+<< 기본명령어 >>
+
+< Setup >
+- git init : 저장소(repository) 생성
+- git config user.name"[작성자 이름]" : 사용자 이름 설정     /    전체 저장소 설정을 동일하게 :  git config --global user.name"[작성자 이름]"
+- git config user.email"[이메일 계정]" : 사용자 이메일 설정  /    전체 저장소 설정을 동일하게 :  git config --global user.email"[이메일 계정]"
+- git config --list : 저장소 설정 전체 출력
+- git config [설정 항목] : 해당 항목 설정 값 출력(예 : git config user.name)
+- git help [명령어] : 도움말
+
+< Stage & commit >
+- git status : 저장소의 상태 정보 출력
+- git add [파일 이름] : 해당 파일을 Staging Area에 올리기
+- git add[디렉토리 이름] : 해당 디렉토리 안에 수정된 모든 파일을 Staging Area에 올리기
+- git add . : Working Directory 안에 추가, 수정된 모든 파일을 Staging Area에 올리기
+- git commit : 이력 저장, 커밋
+- git commit -m "[메시지]" : vim을 사용하지 않고 인라인으로 메시지를 추가하여 커밋 / -m "메시지" 옵션은 --message="메시지" 
+- git commit -am"[메시지]" : git add와 git commit을 한꺼번에 명령(Untracked 파일은 제외)
+- git commit -am"[
+                                   여러줄의 커밋 메시지를 남기려면
+                                      ]"
+- touch 파일 이름 : 해당 파일 이름으로 빈 파일을 생성 (ex: touch test.txt )
+
+    # vim : 리눅스에서 자주 사용되는 문서 편집 프로그램
+        1. " i " 키를 눌러서 문서 편집 모드로 진입
+        2. "Add main.py"라는 커밋 메시지를 작성
+        3. "ESC"를 눌러서 문서 편집 모드에서 나옴
+        4. " :wq " 키를 차례대로 입력한 후, "엔터" 키를 입력. wq는 메시지를 저장하고(write) 편집을 종료(quit)하는 vim 단축키임 
+
+< Inspect >
+- git status : 저장소의 상태 정보 출력
+- git status -s / --short  : 상태 정보를 간결하게 출려그
+        ?? : Untracked
+        M : Modified
+     MM : 파일이 스테이징된 후, 다시 Modified
+        A : 경로가 스테이징된 후, 경로 내에 Untracked 파일 발생
+
+- git log : 저장소의 커밋 히스토리(로그, 이력)를 출력
+- git log -[출력할 커밋 수] : 최근 몇개의 커밋 정보만 출력
+- git log -p / --patch : 각 로그의 상세 정보를 출력
+- git log -p -1 : 가장 최근 커밋한 상세 정보를 출력
+- git log --pretty=oneline : 커밋이 한 줄로 정리되어 출력됨(커밋이 많을 때 유용)
+- git log --oneline : 로그 출력시 커밋을 한 줄로 표시(해시도 앞자리 7글자만 출력)
+- git log --oneline --graph : 커밋 히스토리를 그래프 형태로 출력
+
+- git show : 가장 최근 커밋의 상세 정보 출력
+- git show [커밋 해시] : 특정 커밋의 상세 정보를 확인할 때 사용 (ex : git show baacdb9)
+- git show HEAD : HEAD가 참조하는 커밋의 상세 정보 출력
+- git show HEAD^^^ : HEAD를 기준으로 3단계 이전의 커밋 정보 출력
+- git show HEAD~n : HEAD를 기준으로 n단계 이전의 커밋 정보 출력
+          (ex : git show f7ccc67 = git show HEAD^^ = git show HEAD~2 )
+
+- git diff : 최근 커밋과 변경 사항이 발생한(Unstaged) 파일들의 내용 비교 
+              옵션 없이 git diff를 입력하면 Unstaged 상태의 파일(Modified)과 최신 커밋의 파일을 비교합니다. 
+- git diff --staged : 최근 커밋과 스테이징된 파일 간의 변경 사항 출력
+- git diff [커밋 해시1] [커밋 해시2] : 두 커밋 사이의 파일 간 변경 사항 출력
+
+    # HEAD, 마스터(master), 커밋 해시 모두 특정 커밋을 직,간접으로 참조하는 개체로 이해하면 됩니다. git show 다음에는 이러한 참조 개체 모두가 들어갈 수 있습니다. 이러한 형식은 git show 뿐만 아니라 다른 명령에도 비슷하게 사용됩니다.
+
+
+
+
+<< 커밋 조작 >>
+
+< Checkout & Undoing changes >
+- git reset : Staging Area 의 파일 전체를 언스테이징 상태로 되돌리기
+- git reset [파일 이름(또는 경로)] : 해당 파일(또는 경로)을 언스테이징 상태로 되돌리기
+
+- git commit --amend : 최근 커밋 수정하기
+- git commit --amend -m "[메시지]" : 해당 메시지로 커밋 수정하기
+
+- git checkout [커밋 해시] : 해당 커밋으로 파일 상태 변경
+- git checkout - : HEAD가 이전에 참조했던 커밋으로 상태 변경
+- git checkout master : HEAD가 master 를 참조
+- git checkout  HEAD~n : HEAD를 기준으로 n 단계 이전 커밋으로 상태 변경
+
+  # git checkout으로 modified 파일 되돌리기
+       - git checkout [파일 이름] : git checkout 은 뒤에 따라 나오는 인자에 따라 용도가 다양, 만약 뒤에 파일 이름이 붙으면 Modified 상태인 파일을 Unmodified 상태로 되돌릴 수 있음.    
+       - git checkout .  : 전체 파일을 되돌리려면 . 을 사용
+       - git reset 과 git checkout 을 순차적으로 입력 : Staging Area 에 있는 파일을 Unmodified 상태로 되돌릴 때)
+             (ex : git reset [파일 이름]    git checkout [파일 이름])
+
+
+    # git reset 은 브랜치의 참조를 변경하는 명령어. Git 저장소는 브랜치 이름으로 참조하는 커밋을 최신 커밋으로 인식. 이러한 특징으로 인해 git reset 으로 최신 커밋을 재설정할 수 있다.
+        - git reset [커밋 해시] : 해당 커밋으로 브랜치의 참조를 변경
+        - git reset --hard [커밋  해시] : Working Directory,  Staging Area, 커밋 모두 리셋
+        - git reset --mixed [커밋 해시] : Working Directory 유지,  Staging Area 와 커밋은 리셋, default option
+        - git reset --soft [커밋 해시] : Working Directory 와 Staging Area 유지, 커밋 리셋
+        - git reset HEAD^ : HEAD 를 기준으로 직전의 커밋으로 리셋
+        - git reset HEAD~n : HEAD 를 기준으로 n 단계 전 커밋으로 리셋
+
+- git reflog : HEAD 가 참조한 커밋 이력을 출력
+
+
+
+*** 원격저장소 생성과 연동 ***
+
+- git remote : 현재 브랜치에 추가된 원격저장소 리스트 출력
+- git remote -v (--verbose) : 현재 브랜치에 추가된 원격저장소 리스트 출력(주소 포함)
+- git remote add [원격저장소 이름] [원격저장소 주소] : 해당 이름으로 원격저장소의 주소 등록  / "원격저장소 이름을 origin으로 설정"
+- git remote rm [원격저장소 이름] : 해당 원격저장소를 등록 지스트에서 삭제
+- git remote show [원격저장소 이름] : 원격저장소의 정보 확인
+- git push -u (--set-upstream-to) [원격저장소의 이름] [로컬저장소의 브랜치] : 로컬저장소의 브랜치가 원격저장소를 추적하도록 설정하고, 파일들을 원격저장소로 저장         ( ex : git push -u origin master )
+- fetch : 다운 받은 경로   /  push : 업로드하는 경로   
+
+  # 한번 업스트림 설정을 하면 각 저장소 브랜치의 참조를 계속 추적함. 따라서 다음부터 파일을 업로드할 때 git push origin 대신 
+       git push 만  입력해도 됨
+
+  # 원격저장소에 연동하는 순서
+    1. Github(원격저장소)에 Repository(저장소) 만들기                     : 원격저장소 이름은 로컬저장소와 동일하게 만듬
+    2. git remote add [원격저장소의 이름] [원격저장소의 url]             ( ex : git remote add origin https://github.com/ ~~ )
+    3. git push -u [원격저장소의 이름] [로컬저장소의 브랜치 이름]      ( ex : git push -u origin master )
+
+- git push [원격저장소 이름] [로컬저장소 브랜치] : 로컬 브랜치의 변경사항을 원격 브랜치로 업로드
+- git push : upstream(-u) 설정 후 인자 생략 가능
+- git pull [원격저장소 이름] [로컬저장소 브랜치] : 
+       원격저장소의 정보를 현재 로컬 브랜치에 가져와서 병합( fetch + merge )
+       '예를 들어 원격저장소의 브랜치가 origin/master 이면, git pull origin master'
+- git pull : upstream(-u) 설정 후 인자 생략 가능
+
+
+- git tag : 로컬저장소의 모든 태그를 조회
+- git tag [태그 이름] : 현재 커밋에 태그를 생성(Lightweight 태그)
+- git tag [태그 이름] [커밋 해시] : 해당 커밋에 태그를 생성(Lightweigt 태그)
+- git tag -a [태그 이름] -m "[메시지]" [커밋 해시] : 메시지를 추가하여 태그 생성(Annotated tag)
+- git tag -am [태그 이름] "[메시지]" : 현재 커밋에 메시지를 추가하여 태그 생성(Annotated tag)
+- git show [태그 이름] : 해당 태그가 부착된 커밋의 상세 정보 확인
+- git push --tage : 생성된 전체 태그를 원격저장소에 푸시 ( = git push origin --tags)
+- git push [태그 이름] : 해당 태그를 원격저장소에 푸시 ( = git push origin "[태그 이름]")
+- git tag -d [태그 이름] : 해당 태그 삭제
+- git push -d [태그 이름] : 원격저장소에서 해당 태그 삭제
+
+
+- git revert [커밋 해시] : 해당 커밋을 되돌리기
+- git revert --no-edit [커밋 해시] : 커밋 메시지 수정 없이 기본 메시지로 되돌리기
+- git revert -n [커밋 해시] : 커밋하지 않고 스테이징 상태로만 되돌리기
+- git revert [커밋 해시1]..[커밋 해시2] : 해당 구간만큼 커밋 되돌리기. 커밋 해시1은 되돌려 지지 않음
+  
+  # push 까지 완료한 상태에서 작업 내용을 되돌리려면 git revert 를 사용해야 합니다. 물론 push 까지 마치지 않은 상태라면 git reset 을 사용해서 해결 가능함. 
+
+
+<< 브랜치 >>
+
+<
+
+- git clone [원격저장소 주소] : 원격저장소의 내용을 복제. 폴더 이름은 원격저장소 이름과 동일
+- git clone [원격저장소 주소] [폴더 이름] : 해당 폴더 이름으로 원격저장소의 내용을 복제
+
+     # 충돌이 발생하기 전 단계, 그러니까 git pull 을 입력하기 전으로 돌아가려면 어떻게 할까? 
+     git reset 하여 pull 하기 전 상태로 돌아가거나 (git reser --hard),  git merge --abort 명열으로 병합을 종료하면 된다. 
+
+- git diff origin/master master : origin/master 와 로컬저장소의 master 차이 비교
+- git merge --abort : 병합(merging) 작업 종료
+- git log --oneline --graph : 저장소의 커밋 이력을 한 줄로, 그래프를 추가하여 출력
+
+- git fetch [브랜치 이름] : 해당 브랜치에서 기록된 커밋(작업 내용)을 가져오기
+- git merge [브랜치 이름] : 해당 브랜치의 작업 내용을 현재 브랜치에 병합하기
+
+   # git log : 저장소에 기록된 커밋 히스토리를 확인하는 명령
+      git show : 특정 커밋의 상세 정보를 확인하는 데 도움이 되는 명령
+      git diff : 커밋, 또는 브랜치 간 파일의 변경 사항을 확인
+      git blame : 특정 파일의 수정 내역을 라인 단위로 설명
+
+- git blame [파일 이름] : 파일의 작성자 정보 확인
+- git blame [커밋 해시] [파일 이름] : 해당 커밋에서 파일의 작성자 정보 확인
+- git blame -L [시작 라인], [끝 라인] [파일 이름] : 파일 안의 특정 구간의 작성자 정보만 출력
+- git blame -L [시작 라인], [파일 이름] :
+- git blame -L [끝 라인], [파일 이름] :
+- git blame -s [파일 이름] : 커밋 해시만 표시
+- git blame -e [파일 이름] : 작성자 이름 대신 이메일 정보 표시
+
+
+- git stash : 인덱스 영역에 드래킹되는 파일을 임시 영역에 저장하고, modified 부분을 Working directory 에서 제거. 기본 명칭 WIP로 저장됨
+- git stash -u : 새롭게 추가된 파일(untracked) 도 함께 임시 영역에 저장
+- git stash save [저장 이름] : 저장 이름을 부여해서 저장
+- git stash -m "[메시지]" : 메시지를 기록하여 저장
+- git stash list : stash 기록 확인
+- git stash apply : 가장 최근의 작업 내용 불러오기
+- git stash apply [stash 인덱스] : 해당 인덱스에 해당하는 저장 내용 반영
+- git stash drop : 가장 최근의 stash 제거
+- git stash drop [stash 인덱스] : 해당 인덱스의 stash 삭제
+- git stash pop : 가장 최근의 작업 내용을 불러오고, stash 영역에서 삭제
+    (= git stash apply 와 git stash drop 을 한꺼번에 실행하는 명령)
+- git stash pop [stash 인덱스] : 해당 인덱스의 작업 내용을 불러오고, stash 영역에서 삭제
+- git stash clear : stash 영역의 모든 내용 삭제
+
+ # git stash apply 과정에서 충돌이 발생할 수 있다 : 교재 6.3 의 충돌 해결하기에서 실습한 내용을 참고하여 코드를 정리한 뒤 작업
+ # stash 영역 : 작업중에 급한 요청이 들어와 우선 처리해야 하는 상황 발생시 사용. 또한 한 저장소에 여러 개의 브랜치를 구성하여 작업을 진행할 때 엉뚱한 브랜치에서 작업을 하는 상황도 종종 발생, 이때 stash 영역을 활용하면 쉽게 해결. 
+   이미 커밋을 해버렸다면 작업 내용을 소프트 리셋하고, 커밋을 하지 않았다면 바로 작업한 내용을 stash 영역으로 이동시킵니다. 그러면 브랜치에서 작업한 내용도 사라집니다. 저장소 안의 모든 브랜치는 공통의 stash 영역을 사용하기 때문에 원래 작업하려고 했던 브랜치로 전환해서 작업 내용을 가져올 수 있음.
+ 
+
+
+- git branch : 브랜치 목록 표시
+- git branch [브랜치 이름] : 해당 브랜치 이름으로 브랜치 생성
+- git checkout [브랜치 이름] : 해당 브랜치로 전환
+- git checkout -b [브랜치 이름] : 브랜치 생성과 동시에 전환
+- git branch -m [브랜치 이름] [새로운 브랜치 이름] : 브랜치 이름 변경
+- git branch -d [브랜치 이름] : 해당 브랜치 삭제
+
+
+- git merge [브랜치 이름] : 해당 브랜치의 작업 내용을 현재 브랜치에 병합
+- fast-forward merge : 현재 브랜치가 base 커밋에 위치해서 단순히 참조 커밋을 이동시켜 병합
+- 3-way merge : base 를 기준으로 두 브랜치의 변경 사항이 생겨 새로운 커밋이 생기면서 병합
+
+
+- git merge --ff [브랜치 이름] : fast-forward 관계에 있으면 커밋을 생성하지 않고 현재 브랜치의 참조만 변경(default)
+- git merge --no--ff [브랜치 이름] : fast-forward 관계에 있어도 머지 커밋 생성
+- git merge --squash [브랜치 이름] : 병합할 브랜치의 내용을 하나의 커밋에 합침. 병합할 브랜치 정보는 생략
+ 
+   # --ff, --no--ff, --squash 중에 무엇을 써야 하나
+     : 배포용 버전을 기록할 브랜치(여기서는 master) 에서 다른 브랜치의 내용을 병합할 때 -- ff 보다는 --no-ff 를 사용할 것을 권장.
+       그렇다면 --no--ff 와 --squash 중에 무엇을 쓰는 것이 좋을까? 병합 이력까지 상세하게 기록하고 싶다면 --no--ff 를 사용하면 되고,
+       반면 브랜치를 깔끔하게 정리하고 싶다면 --squash 가 효과적일 것임. 
+
+
+- git rebase [브랜치 이름] : 현재 브랜치가 해당 브랜치(브랜치 이름)부터 분기하도록 재배치
+- git rebase --continue : 충돌 수정 후 재배치 진행
+- git rebase --abort : rebase 취소
+
+  # git merge 와 rebase 중에 어떤 것을 사용해서 브랜치를 관리하는 것이 좋은까?
+     : 선호도 문제. rebase 는 새로운 커밋을 만들지 않습니다. 따라서 브랜치를 재배치한 흔적이 사라집니다. 대신 master 브랜치와 병합할 때 커밋 이력을 간결하게 정리할 수 있습니다. 기록을 상세하게 남기고 싶다면 git merge, 간결하게 정리하고 싶다면 git rebase 를 사용하는 것이 유용.
+
+
+- git cherry-pick [커밋 해시] : 해당 커밋의 내용을 현재 브랜치에 추가. 뒤에 커밋 해시를 연속해서 입력하면 복수 추가 가능
+- git cherry-pick [시작 지점의 커밋 해시] ... [끝 지점의 커밋 해시] : 해당 구간의 commit 을 한 번에 추가
+- git cherry-pick --abort : 충돌과 같은 상황이 발생했을 때  cherry-pick 취소
+- git cherry-pick --continue : 충돌 상황 해결 후  cherry-pick 진행
+
+
+
+
+
+
+
+
+
